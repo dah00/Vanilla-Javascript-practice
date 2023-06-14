@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <style>
+    .container {
+      background-color: black;
+      width: 500px;
+      color: white;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    button {
+      width: 100px;
+      height: 30px;
+      font-size: 18px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Background Color: <span class="color"></span></h1>
+      <button>Flip Color</button>
+    </div>
+  </body>
+
+  <script>
+    const body = document.body;
+    const button = document.querySelector("button");
+    const spanColor = document.querySelector(".color");
+
+    button.addEventListener("click", changeColor);
+
+    function changeColor() {
+      console.log("clicked");
+      let randHexColor = Math.floor(Math.random() * 16777215).toString(16);
+      spanColor.innerText = "#" + randHexColor;
+      body.style.backgroundColor = "#" + randHexColor;
+    }
+  </script>
 </html>
