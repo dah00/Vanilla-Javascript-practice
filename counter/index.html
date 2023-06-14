@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: beige;
+    }
+    .container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    #count {
+      font-size: 40px;
+    }
+    button {
+      text-transform: uppercase;
+      color: rgb(55, 55, 55);
+      background-color: rgb(102, 255, 255);
+      border: 0;
+      border-radius: 5px;
+      width: 130px;
+      height: 30px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      border: 1px solid rgb(91, 91, 236);
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <div id="count">0</div>
+      <div class="buttons">
+        <button class="decreasebtn">decrease</button>
+        <button class="resetbtn">Reset</button>
+        <button class="increasebtn">Increase</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const countContainer = document.getElementById("count");
+    const increasebtn = document.getElementsByClassName("increasebtn")[0];
+    const decreasebtn = document.getElementsByClassName("decreasebtn")[0];
+    const resetbtn = document.getElementsByClassName("resetbtn")[0];
+
+    let count = 0;
+
+    increasebtn.onclick = function () {
+      count++;
+      renderCount();
+    };
+
+    decreasebtn.onclick = function () {
+      count--;
+      renderCount();
+    };
+
+    resetbtn.onclick = function () {
+      count = 0;
+      renderCount();
+    };
+
+    function renderCount() {
+      countContainer.innerHTML = count;
+      if (count > 0) {
+        countContainer.style.color = "green";
+      } else if (count < 0) {
+        countContainer.style.color = "red";
+      } else {
+        countContainer.style.color = "black";
+      }
+    }
+  </script>
+</html>
